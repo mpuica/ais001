@@ -19,10 +19,14 @@
         <color rgba="0 0 0 1"/>
     </material>
 
+    <material name="red">
+        <color rgba="1 0.2 0.2 1"/>
+    </material>
+
     <!-- BASE LINK-->
 
     <link name="base_link">
-
+        <origin xyz="0 0 0.32"/>
     </link>
 
     <!-- CHASSIS LINK-->
@@ -52,6 +56,10 @@
         </xacro:inertial_box>
     </link>
 
+    <gazebo reference="chassis">
+        <material>Gazebo/White</material>
+    </gazebo>
+
     <!-- FRONT LEFT WHEEL LINK -->
 
     <joint name="front_left_wheel_joint" type="continuous">
@@ -77,6 +85,10 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="front_left_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
 
     <!-- FRONT RIGHT WHEEL LINK -->
@@ -105,6 +117,10 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="front_right_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
     <!-- REAR LEFT WHEEL LINK -->
 
     <joint name="rear_left_wheel_joint" type="continuous">
@@ -119,7 +135,7 @@
             <geometry>
                 <cylinder radius="0.032" length="0.02"/>
             </geometry>
-            <material name="blue"/>
+            <material name="red"/>
         </visual>
         <collision>
             <geometry>
@@ -131,6 +147,9 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="rear_left_wheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
 
     <!-- REAR RIGHT WHEEL LINK -->
 
@@ -146,7 +165,7 @@
             <geometry>
                 <cylinder radius="0.032" length="0.02"/>
             </geometry>
-            <material name="blue"/>
+            <material name="red"/>
         </visual>
         <collision>
             <geometry>
@@ -157,5 +176,9 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="rear_right_wheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
 
 </robot>
